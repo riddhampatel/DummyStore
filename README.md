@@ -2,6 +2,10 @@
 
 Production-ready Vite + React app using DummyJSON APIs for auth, profile, products list (with pagination), and product detail.
 
+## Live Demo
+
+https://dummy-store-kappa.vercel.app/login
+
 ## Features
 
 - Login with email or username + password
