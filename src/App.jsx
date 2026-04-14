@@ -9,20 +9,19 @@ import ProtectedRoute from "./components/ProtectedRoute";
 export default function App() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={(
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        )}
-      />
+      {/* Public Route */}
       <Route path="/login" element={<Login />} />
 
-      <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-      <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-      <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
-      <Route path="/products/:id" element={<ProtectedRoute><ProductDetail /></ProtectedRoute>} />
+      {/* Protected Routes Wrapper */}
+      <Route element={<ProtectedRoute />}>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
+      </Route>
+
+      {/* Catch All */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
